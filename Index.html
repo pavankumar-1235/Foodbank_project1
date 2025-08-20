@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Bank Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #2e7d32 !important;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff !important;
+    }
+    .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    /* Counters */
+    .counter-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .counter-box {
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+      background-color: #f8f9fa;
+      transition: transform 0.3s;
+    }
+    .counter-box:hover {
+      transform: translateY(-5px);
+    }
+    .counter-icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ff9800;
+    }
+    .counter-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    /* Features */
+    .features {
+      padding: 60px 20px;
+      background: #f8fff9;
+    }
+    .feature-card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+    }
+    .feature-card i {
+      font-size: 2rem;
+      color: #2e7d32;
+    }
+
+    /* About */
+    .about-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    /* Testimonials */
+    .testimonial-section {
+      background: #f1f8e9;
+      padding: 60px 20px;
+    }
+    .testimonial-card {
+      border: none;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">FoodBank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="donationlist.html"><i class="bi bi-box-seam"></i> Donations</a></li>
+          <li class="nav-item"><a class="nav-link" href="Rlist.html"><i class="bi bi-clipboard-check"></i> Requests</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="account.html"><i class="bi bi-person-circle"></i> Account</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content animate__animated animate__fadeIn">
+      <h1>Register Your Account to Help Feed the Needy</h1>
+      <p class="mt-3">Join us in bridging the gap between food surplus and hunger</p>
+      <a href="signup.html" class="btn btn-warning btn-lg mt-4">Register Now</a>
+    </div>
+  </section>
+
+  <!-- Counters -->
+  <section class="counter-section">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="counter-box">
+            <div class="counter-icon"><i class="bi bi-bag-heart"></i></div>
+            <div class="counter-number" id="donationCounter">0</div>
+            <p>Total Donations</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="counter-box">
+            <div class="counter-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="counter-number" id="requestCounter">0</div>
+            <p>Total Requests</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container text-center">
+      <h2 class="mb-5">Why Join FoodBank?</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card feature-card p-4">
+            <i class="bi bi-box2-heart mb-3"></i>
+            <h5>How It Works</h5>
+            <p>Restaurants & individuals donate surplus food which is distributed to the needy.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card feature-card p-4">
+            <i class="bi bi-people mb-3"></i>
+            <h5>Community Impact</h5>
+            <p>Be part of a movement creating positive change in society.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card feature-card p-4">
+            <i class="bi bi-hand-thumbs-up mb-3"></i>
+            <h5>Volunteer</h5>
+            <p>Help deliver food and bring smiles to those in need.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card feature-card p-4">
+            <i class="bi bi-award mb-3"></i>
+            <h5>Success Stories</h5>
+            <p>See how FoodBank has already impacted thousands of lives.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <div class="about-section">
+    <div class="container">
+      <h2 class="animate__animated animate__fadeInUp">About Us</h2>
+      <p class="animate__animated animate__fadeInUp animate__delay-1s">
+        At FoodBank, our mission is to bridge the gap between food surplus and hunger. We collaborate with local restaurants, caterers, and volunteers to collect excess food and distribute it to the underprivileged. Your participation can bring a meal to someone in need and help build a more compassionate community.
+      </p>
+    </div>
+  </div>
+
+ 
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    &copy; 2025 Food Bank | Designed with ❤️ using Bootstrap
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Counter Script -->
+  <script>
+    function countUp(id, target) {
+      let count = 0;
+      const step = Math.ceil(target / 100);
+      const duration = 2000;
+      const incrementTime = duration / (target / step);
+
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        document.getElementById(id).textContent = count;
+      }, incrementTime);
+    }
+
+    // Trigger count-up only when section is visible
+    const counters = document.querySelectorAll(".counter-number");
+    let triggered = false;
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".counter-section");
+      const sectionTop = section.getBoundingClientRect().top;
+      if (!triggered && sectionTop < window.innerHeight) {
+        countUp('donationCounter', 1284);
+        countUp('requestCounter', 937);
+        triggered = true;
+      }
+    });
+  </script>
+</body>
+</html>
